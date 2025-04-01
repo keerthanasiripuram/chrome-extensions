@@ -9,7 +9,7 @@ export type Note = {
 
 export type NoteType = 'local' | 'global';
 
-const App: React.FC = () => {
+const NoteTaker: React.FC = () => {
   const [localNotes, setLocalNotes] = useState<Note[]>([]);
   const [globalNotes, setGlobalNotes] = useState<Note[]>([]);
   const [noteInput, setNoteInput] = useState<string>('');
@@ -116,54 +116,6 @@ const App: React.FC = () => {
     });
   };
 
-  // return (
-  //   <div>
-  //     <h2>Smart Notes</h2>
-  //     <textarea value={noteInput} onChange={(e) => setNoteInput(e.target.value)} placeholder="Enter your note..." />
-  //     <button onClick={() => addNote('local')}>Add Local Note</button>
-  //     <button onClick={() => addNote('global')}>Add Global Note</button>
-
-  //     <h3>Local Notes (Only visible on this page)</h3>
-  //     <ul>
-  //       {localNotes.map((note, index) => (
-  //         <li key={index}>
-  //           {editType === 'local' && editIndex === index ? (
-  //             <>
-  //               <input type="text" value={editContent} onChange={(e) => setEditContent(e.target.value)} />
-  //               <button onClick={saveEdit}>Save</button>
-  //             </>
-  //           ) : (
-  //             <>
-  //               <span>{note.content}</span>
-  //               <button onClick={() => startEditing('local', index, note.content)}>✏️ Edit</button>
-  //             </>
-  //           )}
-  //           <button onClick={() => removeNote('local', index)}>❌ Remove</button>
-  //         </li>
-  //       ))}
-  //     </ul>
-
-  //     <h3>Global Notes (Visible on all pages)</h3>
-  //     <ul>
-  //       {globalNotes.map((note, index) => (
-  //         <li key={index}>
-  //           {editType === 'global' && editIndex === index ? (
-  //             <>
-  //               <input type="text" value={editContent} onChange={(e) => setEditContent(e.target.value)} />
-  //               <button onClick={saveEdit}>Save</button>
-  //             </>
-  //           ) : (
-  //             <>
-  //               <span>{note.content}</span>
-  //               <button onClick={() => startEditing('global', index, note.content)}>✏️ Edit</button>
-  //             </>
-  //           )}
-  //           <button onClick={() => removeNote('global', index)}>❌ Remove</button>
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   </div>
-  // );
   return (
     <div>
       <h2>Smart Notes</h2>
@@ -178,4 +130,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default NoteTaker;
