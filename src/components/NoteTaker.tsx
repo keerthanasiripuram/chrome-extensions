@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import DisplayData from './DisplayData';
+import "./GlobalStyles.css"
 
 export type Note = {
   content: string;
@@ -169,10 +170,10 @@ const App: React.FC = () => {
       <textarea value={noteInput} onChange={(e) => setNoteInput(e.target.value)} placeholder="Enter your note..." />
       <button onClick={() => addNote('local')}>Add Local Note</button>
       <button onClick={() => addNote('global')}>Add Global Note</button>
-      <DisplayData type="local" notes={localNotes} editType={editType} editIndex={editIndex} editContent={editContent} 
-      saveEdit={saveEdit} setEditContent={setEditContent} startEditing={startEditing} removeNote={removeNote} />
-      <DisplayData type="global" notes={globalNotes} editType={editType} editIndex={editIndex} editContent={editContent} 
-      saveEdit={saveEdit} setEditContent={setEditContent} startEditing={startEditing} removeNote={removeNote} />
+      <DisplayData type="local" notes={localNotes} editType={editType} editIndex={editIndex} editContent={editContent}
+        saveEdit={saveEdit} setEditContent={setEditContent} startEditing={startEditing} removeNote={removeNote} />
+      <DisplayData type="global" notes={globalNotes} editType={editType} editIndex={editIndex} editContent={editContent}
+        saveEdit={saveEdit} setEditContent={setEditContent} startEditing={startEditing} removeNote={removeNote} />
     </div>
   );
 };

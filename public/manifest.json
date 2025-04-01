@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Chrome Extensions",
     "version": "1.0",
-    "description": "Automatically groups open tabs and saves/restores sessions.",
+    "description": "Note Taker,Product Tracker,Ad Blocker, Tab Manager Chrome extensions",
     "permissions": [
       "tabs",
       "storage",
@@ -13,17 +13,6 @@
       "scripting"
     ],
     "host_permissions": ["<all_urls>"],
-    "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["contentScript.js"]
-    },
-    {
-      "matches": ["<all_urls>"],
-      "js": ["notesContentScript.js"]
-    }
-
-  ],
     "background": {
       "service_worker": "background.js"
     },

@@ -1,12 +1,13 @@
 import React from "react";
-import "./TabManager.css"
+import "./GlobalStyles.css"
+
 const Popup: React.FC = () => {
   const handleAction = (action: string) => {
     chrome.runtime.sendMessage({ action });
   };
 
   return (
-    <div className="popup-container">
+    <div>
       <h2>Tab Manager</h2>
       <button onClick={() => handleAction("groupTabs")}>Group Tabs</button>
       <button onClick={() => handleAction("saveSession")}>Save Session</button>
@@ -14,4 +15,5 @@ const Popup: React.FC = () => {
     </div>
   );
 };
+
 export default Popup;

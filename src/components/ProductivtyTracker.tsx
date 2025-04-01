@@ -1,6 +1,6 @@
-
 import React, { useEffect, useState } from "react";
-import "./TabManager.css";
+import "./GlobalStyles.css"
+import "./ProductivityTracker.css"
 
 const ProductivityTracker: React.FC = () => {
   const [siteData, setSiteData] = useState<Record<string, number>>({});
@@ -19,7 +19,7 @@ const ProductivityTracker: React.FC = () => {
       });
     }
   }
-  
+
   function displayData() {
     chrome.storage.local.get("siteData", (data) => {
       const fetchedData = data.siteData || {};
@@ -31,7 +31,7 @@ const ProductivityTracker: React.FC = () => {
     <div className="popup-container">
       <h1>Website Time Tracker</h1>
       <button onClick={() => handleAction("reset")}>Reset Data</button>
-      <table id="timeTable">
+      <table id="timeTable" >
         <thead>
           <tr>
             <th>Website</th>

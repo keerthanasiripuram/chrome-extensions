@@ -10,7 +10,7 @@ export default defineConfig({
         popup:"index.html",
         background: 'src/background.ts',
         options: 'options.html',
-        contentScript: 'src/contentScript.ts', // Add this line
+        contentScript: 'src/contentScript.ts', 
         notesContentScript: 'src/notesContentScript.ts', 
         optionsIndex: 'src/components/OptionsIndex.tsx',
 

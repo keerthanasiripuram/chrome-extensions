@@ -1,54 +1,84 @@
-# React + TypeScript + Vite
+# Productivity Tracker, Smart Note-Taking Tool, and Tab Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This project consists of three Chrome extensions designed to enhance productivity and streamline browser management:
+1. **Productivity Tracker** - Tracks the time spent on different websites and provides insights.
+2. **Smart Note-Taking Tool** - Allows users to take URL-specific notes (local) or global notes accessible across pages.
+3. **Tab Manager** - Automatically categorizes and manages open tabs based on their content.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+### 1. Productivity Tracker
+- **Tracks Website Usage:** Monitors time spent on each website.
+- **Time Visualization:** Displays time spent per site using a  tabular format.
+- **Daily Limits:** Users can  reset daily time limits for specific websites.
+- **Persistent Data:** Data is stored using `chrome.storage.local`.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 2. Smart Note-Taking Tool
+- **Local Notes:** Take notes that are tied to the current URL and only visible when revisiting that URL.
+- **Global Notes:** Create notes that are accessible from any page.
+- **CRUD Operations:** Notes can be added, edited, and removed easily.
+- **Storage Management:** Notes are stored locally using `chrome.storage.local`.
+- **Efficient UI:** Real-time UI updates using React state management.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### 3. Tab Manager
+- **Tab Categorization:** Automatically groups tabs into categories like Social Media, Work, or News using basic URL-based matching.
+- **Session Management:** Save using `chrome.storage.local` and restore tab sessions.
+- **Tab Navigation:** Easily navigate between categorized tabs.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Installation
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/username/productivity-suite.git
+    cd productivity-suite
+    ```
+2. Build the project using npm:
+    ```bash
+    npm install
+    npm run build
+    ```
+3. Load the extension in Chrome:
+    - Open `chrome://extensions/`
+    - Enable **Developer mode** (toggle in the top right).
+    - Click on **Load unpacked**.
+    - Select the `build` folder.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+---
+
+## Usage
+
+### Productivity Tracker
+1. Enable the extension.
+2. The tracker will automatically monitor time spent on active tabs.
+3. View reports in table format.
+4. Reset daily limits from the  page.
+
+### Smart Note-Taking Tool
+1. Click the extension icon.
+2. Choose between **Local Note** or **Global Note**.
+3. Enter your note and save.
+4. Edit or delete notes as needed.
+
+### Tab Manager
+1. Open multiple tabs in Chrome.
+2. Click the Tab Manager extension icon.
+3. View grouped tabs by category.
+4. Save or restore tab sessions as needed.
+
+---
+
+## Technical Details
+- **Frontend:** React, HTML, CSS
+- **Backend:** Chrome Extensions API (tabs, storage)
+- **State Management:** React Hooks
+- **Storage:** chrome.storage.local
+- **Build Tools:** Vite, npm
+
+---
+
+
+

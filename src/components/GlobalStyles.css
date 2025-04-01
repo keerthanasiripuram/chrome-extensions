@@ -4,6 +4,7 @@ body {
     text-align: center;
     font-family: Arial, sans-serif;
 }
+
 button {
     width: 100%;
     margin: 5px 0;
@@ -14,6 +15,7 @@ button {
     cursor: pointer;
     border-radius: 5px;
 }
+
 button:hover {
     background: #0056b3;
 }
