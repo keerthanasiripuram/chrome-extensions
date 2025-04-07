@@ -66,9 +66,24 @@ window.addEventListener("resize", () => {
   }
 });
 
-//Function to load all tooltips on reload
-setTimeout(() => {
+//Function to load all tooltips on reload using Mutation Observer
+
+const observer = new MutationObserver(() => {
+  observer.disconnect();
   restoreAllTooltips()
-}, 1000)
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+  });
+})
+
+
+observer.observe(document.body, {
+  childList: true,
+  subtree: true,
+  attributes: true,
+});
+
 
 

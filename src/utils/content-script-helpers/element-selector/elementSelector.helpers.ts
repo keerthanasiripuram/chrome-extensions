@@ -50,7 +50,7 @@ export const addToolTip = async (target: HTMLElement) => {
     const tooltip = document.createElement("div");
     const uniqueSelector = finder(target);
     const tooltipId = tooltipStorage.getKey(uniqueSelector);
-    
+
     target.setAttribute("data-tooltip-id", tooltipId);
 
     Object.assign(tooltip.style, {
@@ -134,15 +134,16 @@ export const addToolTip = async (target: HTMLElement) => {
 };
 
 //Function to restore tooltips which are saved in local storage
-export const restoreAllTooltips = async () => {
+export const restoreAllTooltips =  () => {
     const tooltips = tooltipStorage.getAll();
     for (const fullSelector in tooltips) {
         const [path, selector] = fullSelector.split("::");
         if (path === location.pathname) {
             const target = document.querySelector(selector) as HTMLElement;
-            if (target) {
+            if (target && !target.hasAttribute("data-tooltip-id")) {
                 addToolTip(target);
-            }
+              }
+        
         }
     }
 };

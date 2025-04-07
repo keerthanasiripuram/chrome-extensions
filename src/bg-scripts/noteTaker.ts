@@ -1,4 +1,5 @@
 export const noteTaker = () => {
+
     chrome.runtime.onInstalled.addListener(() => {
         chrome.contextMenus.create({
             id: "addNote",
@@ -6,6 +7,7 @@ export const noteTaker = () => {
             contexts: ["selection"]
         });
     });
+
     chrome.contextMenus.onClicked.addListener((info, tab) => {
         if (info.menuItemId === "addNote" && info.selectionText && tab?.id && tab.url) {
             chrome.scripting.executeScript({
