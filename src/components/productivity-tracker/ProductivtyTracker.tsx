@@ -1,23 +1,17 @@
 import React, { useEffect, useState } from "react";
-import "./GlobalStyles.css"
+import "../../global-styles.css"
 import "./ProductivityTracker.css"
 
 const ProductivityTracker: React.FC = () => {
+
   const [siteData, setSiteData] = useState<Record<string, number>>({});
 
   useEffect(() => {
     displayData();
   }, [siteData]);
 
-  function handleAction(action: string) {
-    if (action === "reset") {
-      chrome.runtime.sendMessage({ action: "reset" }, (response) => {
-        if (response?.status === "success") {
-          setSiteData({});
-          console.log("Data Reset Successfully across all scripts.");
-        }
-      });
-    }
+  function handleReset(){
+    chrome.storage.local.set({ siteData: {} });
   }
 
   function displayData() {
@@ -30,7 +24,7 @@ const ProductivityTracker: React.FC = () => {
   return (
     <div className="popup-container">
       <h1>Website Time Tracker</h1>
-      <button onClick={() => handleAction("reset")}>Reset Data</button>
+      <button onClick={handleReset}>Reset Data</button>
       <table id="timeTable" >
         <thead>
           <tr>

@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@medv/finder": "^4.0.2",
     "@types/chrome": "^0.0.312",
     "chrome": "^0.1.0",
     "react": "^19.0.0",

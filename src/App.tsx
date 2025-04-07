@@ -1,16 +1,15 @@
-import AddBlocker from "./components/AddBlocker"
-import NoteTaker from "./components/note-taker/NoteTaker"
-import NoteTaker1 from "./components/note-taker/NoteTaker1"
-import ProductivityTracker from "./components/ProductivtyTracker"
-import TabManager from "./components/TabManager"
+import ElementSelector from "./components/element-selector/ElementSelector"
+import NoteTaker2 from "./components/note-taker/NoteTaker2"
+import ProductivityTracker from "./components/productivity-tracker/ProductivtyTracker"
+import TabManager from "./components/tab-manager/TabManager"
 
 function App() {
   return (
     <>
     <TabManager/>
     <ProductivityTracker/>
-    {/* <AddBlocker/> */}
-    <NoteTaker1/>
+    <NoteTaker2/>
+    <ElementSelector/>
     </>
   )
 }

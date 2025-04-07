@@ -1,7 +1,8 @@
 import React from "react";
-import "./GlobalStyles.css"
+import "../../global-styles.css"
 
 const Popup: React.FC = () => {
+
   const handleAction = (action: string) => {
     chrome.runtime.sendMessage({ action });
   };

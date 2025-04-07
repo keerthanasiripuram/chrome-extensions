@@ -94,7 +94,7 @@
 
 
 
-import { Note, NoteType } from '../types/noteType';
+import { Note, NoteType } from '../components/note-taker/note.type';
 
 export const loadNotes = (setLocalNotes: Function, setGlobalNotes: Function) => {
   console.log("load")
