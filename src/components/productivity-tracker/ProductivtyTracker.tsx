@@ -10,7 +10,7 @@ const ProductivityTracker: React.FC = () => {
     displayData();
   }, [siteData]);
 
-  function handleReset(){
+  function handleReset() {
     chrome.storage.local.set({ siteData: {} });
   }
 

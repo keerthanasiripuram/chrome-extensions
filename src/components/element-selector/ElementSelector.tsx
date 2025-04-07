@@ -1,12 +1,15 @@
+import { useState } from "react";
 import { getCurrentTabId, sendTabsMessage } from "../../utils/helpers";
 
-
 const ElementSelector = () => {
+
+    const [isEnable, setIsEnable] = useState(true)
 
     const handleEnable = async () => {
         try {
             const currentTabId = await getCurrentTabId();
-            await sendTabsMessage(currentTabId, "script-injected");
+            sendTabsMessage(currentTabId, "script-injected");
+            setIsEnable(false)
         }
         catch (error) {
             console.log("error in enabling", error);
@@ -16,7 +19,8 @@ const ElementSelector = () => {
     const handleDisable = async () => {
         try {
             const currentTabId = await getCurrentTabId();
-            await sendTabsMessage(currentTabId, "disable-script");
+            sendTabsMessage(currentTabId, "disable-script");
+            setIsEnable(true)
         }
         catch (error) {
             console.log("error in disabling", error);
@@ -26,8 +30,8 @@ const ElementSelector = () => {
     return (
         <>
             <p>Element selector</p>
-            <button onClick={handleEnable}>Enable</button>
-            <button onClick={handleDisable}>Disable</button>
+            {isEnable ? <button onClick={handleEnable}>Enable</button> :
+                <button onClick={handleDisable}>Disable</button>}
         </>
     );
 };
