@@ -5,7 +5,9 @@ This project consists of three Chrome extensions designed to enhance productivit
 1. **Productivity Tracker** - Tracks the time spent on different websites and provides insights.
 2. **Smart Note-Taking Tool** - Allows users to take URL-specific notes (local) or global notes accessible across pages.
 3. **Tab Manager** - Automatically categorizes and manages open tabs based on their content.
+4. **Element Selector** - Select and inspect elements visually on any page.
 
+5. **Tooltip Helper** - Add helpful, custom tooltips to elements dynamically.
 ---
 
 ## Features
@@ -28,13 +30,26 @@ This project consists of three Chrome extensions designed to enhance productivit
 - **Session Management:** Save using `chrome.storage.local` and restore tab sessions.
 - **Tab Navigation:** Easily navigate between categorized tabs.
 
+### 4. Element Selector
+
+- **Highlight on Hover** : Highlights target element visually.
+
+### 5. Tooltip Helper
+
+-**Create tooltip**
+- **Persistent Map**: Maintains a live map of elements and tooltips.
+
+-**Restore all tooltips**:Easily trigger restoreAllTooltips() via scripts.
+
+- **Dynamically tooltip content**
+
 ---
 
 ## Installation
 1. Clone the repository:
     ```bash
-    git clone https://github.com/username/productivity-suite.git
-    cd productivity-suite
+    git clone https://github.com/keerthanasiripuram/chrome-extensions.git
+    cd chrome-extensions
     ```
 2. Build the project using npm:
     ```bash
