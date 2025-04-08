@@ -8,15 +8,8 @@ export const getCurrentTabId = async ():Promise<number>=>{
 };
 
 //helper fun to send message to tab
-export const sendTabsMessage = (currentTabId: number, messageType:string)=>{
-    const response=chrome.tabs.sendMessage(currentTabId, { type: messageType})
-      if (chrome.runtime.lastError) {
-          console.error("Error forwarding message:", chrome.runtime.lastError.message);  
-          return {success:false};
-        } else {
-          console.log("message",response)
-          return {success:true,response}
-        }
+export const sendTabsMessage = async(currentTabId: number, messageType:string)=>{
+  return await chrome.tabs.sendMessage(currentTabId, { type: messageType})
 }
 
 

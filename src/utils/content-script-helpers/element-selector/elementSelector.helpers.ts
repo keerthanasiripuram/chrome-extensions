@@ -130,6 +130,10 @@ export const addToolTip = async (target: HTMLElement) => {
 
     //register scroll and intersection observers to target
     visibilityObserver.observe(target);
+    //document.body.addEventListener("scroll",()=>positionToolTip, true);
+
+    // document.querySelector(uniqueSelector)?.addEventListener("scroll",()=>positionToolTip);
+
     attachScrollListeners(target, tooltip);
 };
 

@@ -37,26 +37,28 @@ const messageHandler = (event: MessageEvent) => {
   }
 };
 
-chrome.runtime.onMessage.addListener((message) => {
+chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {//whle syntx
   //disable listeners
   if (message.type === "disable-script") {
-    console.log(message)
-    console.log("disabling")
     document.removeEventListener("mousemove", mouseMoveHandler);
     window.removeEventListener("message", messageHandler);
     highlightBox.remove();
-    document.removeEventListener("click", clickEvent)
+    document.removeEventListener("click", clickEvent);
+    sendResponse({ success: true, status: "Listeners disabled" });
+    return true;
   }
 
   //enable listeners
   if (message.type === "script-injected") {
-    console.log("injected")
-    console.log(highlightBox)
     document.body.appendChild(highlightBox);
     document.addEventListener("mousemove", mouseMoveHandler);
     window.addEventListener("message", messageHandler);
     document.addEventListener("click", clickEvent);
+    sendResponse({ success: true, status: "Listeners enabled" });
+    return true;
   }
+  sendResponse({ success: false, error: "Unknown message type" });
+  return false;
 });
 
 //postion tooltip on resize

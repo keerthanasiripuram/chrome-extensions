@@ -25,16 +25,25 @@ export const elementSelector = () => {
     });
 }
 
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
     if (message.type === "disable-script" && sender.tab?.id !== undefined) {
         try {
-            const response = sendTabsMessage(sender.tab.id, "disable-script");
-            sendResponse(response)
-            return true;
+            const response = await sendTabsMessage(sender.tab.id, "disable-script");
+            if (response.success) {
+                sendResponse(response)
+                return true;
+            }
+            else {
+                sendResponse({ success: false, error: "failed in disabling script" });
+                return false;
+            }
         } catch (error) {
             console.error("Exception in message forwarding:", error);
-            sendResponse({ success: false });
+            sendResponse({ success: false, error: error });
+            return false;
         }
     }
+    sendResponse({ success: false, error: "Unknown message type" });
+    return false;
 });
 
